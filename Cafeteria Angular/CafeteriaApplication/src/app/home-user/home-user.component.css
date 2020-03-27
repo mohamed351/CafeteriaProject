@@ -1,0 +1,8 @@
+*{
+    box-sizing: border-box;
+}
+.flex-border{
+    border:0.5px solid #eee;
+    height: 50vh;
+    padding: 1rem;
+}

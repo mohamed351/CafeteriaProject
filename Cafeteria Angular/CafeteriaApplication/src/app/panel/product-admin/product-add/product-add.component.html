@@ -1,0 +1,61 @@
+<div  class="container">
+ <form #f="ngForm" (ngSubmit)="SubmitData(f)" class="mt-5">
+
+    <div class="form-group">
+        <label for="Name">Product Name</label>
+        <input  type="text"  class="form-control"  name="ProductName" ngModel #ProductName="ngModel" />
+    </div>
+
+
+    <div class="form-group">
+        <label for="Price">Price </label>
+        <input required type="number" placeholder="Price" class="form-control" Id="Price" name="price" ngModel #Price="ngModel" />
+    </div>
+
+    <div class="form-group">
+        <label for="Quantity">Quantity </label>
+        <input required type="number" class="form-control" placeholder="Quantity" Id="Quantity" name="qtu" ngModel #Quantity="ngModel" />
+    </div>
+
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <select name="categoryID" ngModel="categoryID" #categoryID="ngModel" required class="form-control">
+           <option *ngFor="let i of Category" [value]="i.ID">{{i.CategoryName}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label  class="fileStyle">
+            Upload File 
+        <input type="file" (change)="fileChangeEvent($event)" />
+    
+    </label>
+    <div class="alert alert-warning mt-1" *ngIf="imageWarningMessage == ''">
+     Please Insert your Picture 
+    </div>
+    </div>
+    
+    <div class="form-group row">
+       <div class="col-md-6">
+    <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="4 / 3"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    [resizeToWidth]="250"
+    [resizeToHeight]="250"
+    ></image-cropper>
+    
+    </div>
+    
+    <div class="col-md-6">
+        <img [src]="croppedImage" />
+    </div>
+    </div>
+
+
+
+    <button class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Product</button>
+</form>
+</div>

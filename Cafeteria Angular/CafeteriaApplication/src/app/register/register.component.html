@@ -1,0 +1,73 @@
+<div class="container mt-5 mb-5 registration-container">
+    <h2 class="text-center mb-5">Registration </h2>
+    
+     
+<form #f="ngForm" (ngSubmit)="OnDataSumbit(f)">
+    <div class="form-group">
+    <input required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" #Email="ngModel" type="text" ngModel name="Email" class="form-control" placeholder="Email"/>
+    <div class="alert alert-danger mt-1" *ngIf="!Email.valid && Email.touched">
+        <div *ngIf="Email.errors.required">Email is Required</div>
+        <div *ngIf="Email.errors.pattern">It is not an Email the Email pattern is somthing@someserver.com </div>
+    </div>
+   </div>
+   <div class="form-group">
+    <input required #UserName="ngModel" ngModel type="text" name="UserName" class="form-control" placeholder="UserName" />
+    <div class="alert alert-danger mt-1" *ngIf="!UserName.valid && UserName.touched">
+        <div> The User Name is Required</div>
+    </div>
+</div>
+
+<div class="form-group">
+    <input required #Name="ngModel" type="text" ngModel name="Name" class="form-control" placeholder="Name"/>
+    <div class="alert alert-danger mt-1" *ngIf="!Name.valid && Name.touched">
+        <div> The  Name is Required</div>
+    </div>
+</div>
+<div class="form-group">
+    <input required #Password="ngModel" type="password" ngModel name="Password" class="form-control"  placeholder="Password"/>
+    <div class="alert alert-danger mt-1" *ngIf="!Password.valid && Password.touched">
+        <div> The  Password is Required</div>
+    </div>
+</div>
+<div class="form-group">
+    <input required  #Phone="ngModel" type="text" ngModel name="Phone" class="form-control"  placeholder="Phone"/>
+</div>
+<div class="form-group">
+    <label  class="fileStyle">
+        Upload File 
+    <input type="file" (change)="fileChangeEvent($event)" />
+
+</label>
+<div class="alert alert-warning mt-1" *ngIf="imageWarningMessage == ''">
+ Please Insert your Picture 
+</div>
+</div>
+
+<div class="form-group row">
+   <div class="col-md-6">
+<image-cropper
+[imageChangedEvent]="imageChangedEvent"
+[maintainAspectRatio]="true"
+[aspectRatio]="4 / 3"
+format="png"
+(imageCropped)="imageCropped($event)"
+[resizeToWidth]="250"
+></image-cropper>
+
+</div>
+
+<div class="col-md-6">
+    <img [src]="croppedImage" />
+</div>
+</div>
+  <div class="row flex-row-reverse">
+    <button class="btn btn-success">Submit</button>
+</div>
+</form>
+<div>
+ 
+
+
+
+</div>
+</div>
