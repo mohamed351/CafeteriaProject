@@ -1,1 +1,24 @@
-<p>category-admin works!</p>
+<div class="container-fluid mt-5">
+
+    <a  routerLink="/CategoryAddComponent" class="btn btn-success mb-3"> Create new Category</a>
+
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of Category ">
+                <td>{{i.CategoryName}}</td>
+                <td> <a [routerLink]="['/categoryControlEdit',i.ID]" class="btn btn-primary"> Edit</a> |
+                    <button class="btn btn-danger" (click)="OpenDailog({ID:i.ID,Name:i.CategoryName })">Delete</button>
+                
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

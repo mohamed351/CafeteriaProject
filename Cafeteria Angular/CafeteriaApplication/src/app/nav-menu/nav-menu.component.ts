@@ -1,3 +1,4 @@
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { LocalStorageUsersService } from './../../services/local-storage-users.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavMenuComponent implements OnInit {
 
-  constructor(private LocalStorageUsers:LocalStorageUsersService) { }
+  constructor(private LocalStorageUsers:LocalStorageUsersService,
+    private ShoppingCartService:ShoppingCartService) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +31,10 @@ export class NavMenuComponent implements OnInit {
   }
   GetUserRole(){
    return  this.LocalStorageUsers.GetRole();
+  }
+  GetLenght(){
+    return this.ShoppingCartService.GetLenghtOfItems();
+    
   }
  
 

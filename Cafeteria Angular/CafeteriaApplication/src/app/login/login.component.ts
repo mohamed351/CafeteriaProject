@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LocalStorageUsersService } from './../../services/local-storage-users.service';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,9 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private UserService:UserService ,private LocalStorageUsers:LocalStorageUsersService) { }
+  constructor(private UserService:UserService 
+    ,private LocalStorageUsers:LocalStorageUsersService,
+    private Router:Router) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +25,10 @@ export class LoginComponent implements OnInit {
       , password:data.value.Password
         }).subscribe(a=>{
           this.LocalStorageUsers.SetLocalStorage(a);
+         if(this.LocalStorageUsers.GetRole()  == "Customer")
+         {
+            this.Router.navigate(['/CustomerHome']);
+         }
            
     });
   }

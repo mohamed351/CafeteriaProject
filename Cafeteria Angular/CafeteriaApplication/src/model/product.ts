@@ -1,13 +1,13 @@
 export class Product {
 
-    constructor(private ID:number
-        ,private Name:string
-        ,private ImageUrl:string
-        ,private IsDeleted:boolean
-        ,private IsAvailable:boolean
-        ,private Price:number
-        ,private Quantity:number,
-        private CategoryID:number){
+    constructor(public ID:number
+        ,public Name:string
+        ,public ImageUrl:string
+        ,public IsDeleted:boolean
+        ,public IsAvailable:boolean
+        ,public Price:number
+        ,public Quantity:number,
+        public CategoryID:number){
 
     }
 

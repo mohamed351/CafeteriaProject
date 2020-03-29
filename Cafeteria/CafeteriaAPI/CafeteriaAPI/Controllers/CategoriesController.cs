@@ -22,7 +22,7 @@ namespace CafeteriaAPI.Controllers
         // GET: api/Categories
         public IQueryable<Category> GetCategories()
         {
-            string Id = User.Identity.GetUserId();
+            
 
             return db.Categories;
         }
@@ -84,6 +84,7 @@ namespace CafeteriaAPI.Controllers
                 return BadRequest(ModelState);
             }
 
+           
             db.Categories.Add(category);
             db.SaveChanges();
 

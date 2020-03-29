@@ -9,6 +9,7 @@ namespace CafeteriaAPI.Migrations
         {
             AddColumn("dbo.Products", "Price", c => c.Double(nullable: false));
             AddColumn("dbo.Products", "Quantity", c => c.Int(nullable: false));
+            
         }
         
         public override void Down()

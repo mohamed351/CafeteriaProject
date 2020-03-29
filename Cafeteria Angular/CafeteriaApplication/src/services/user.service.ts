@@ -27,7 +27,6 @@ export class UserService {
      "Accept":"application/x-www-form-urlencoded"
     });
     var data = "grant_type=password&username=" + userLoginInformation.username + "&password=" + userLoginInformation.password;
-   
 
      return this.http.post("http://localhost:62263/token",data,{headers:header});
    }

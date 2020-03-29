@@ -1,0 +1,13 @@
+<div class="container mt-5">
+    <form #f="ngForm" (ngSubmit)="SubmitData(f)">
+     <input required type="hidden" name="ID" [ngModel]="Category.ID" />
+     <div class="form-group">
+        <label>CategoryName</label>
+        <input required type="text" class="form-control" name="CategoryName" required #categoryName="ngModel" [(ngModel)]="Category.CategoryName" placeholder="Category Name">
+        <div class="alert alert-danger mt-4" *ngIf="!categoryName.valid && categoryName.touched" >
+         The Category Name is Required
+        </div>
+     </div>
+     <button class="btn btn-success" [disabled]="!f.valid"> Submit </button>
+   </form>
+</div>

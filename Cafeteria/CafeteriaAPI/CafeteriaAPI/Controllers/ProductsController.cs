@@ -15,7 +15,7 @@ using CafeteriaAPI.Models;
 
 namespace CafeteriaAPI.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Customer")]
     public class ProductsController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -41,7 +41,7 @@ namespace CafeteriaAPI.Controllers
             {
                 return NotFound();
             }
-
+           
             return Ok(product);
         }
 
