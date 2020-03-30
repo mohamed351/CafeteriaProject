@@ -20,20 +20,32 @@
               <td><input disabled class="form-control" [value]="i.Qtu" type="text" name="" style="width: 100px;" id=""></td>
               <td>
                   <div class="btn-group" role="group" aria-label="Basic example">
-                      <button type="button" class="btn btn-success">+</button>
-                      <button type="button" class="btn btn-primary">-</button>
+                      <button type="button" class="btn btn-success" (click)="raiseQtu(i.ProductID)">+</button>
+                      <button type="button" class="btn btn-primary" (click)="MinQtu(i.ProductID)">-</button>
                   
                     </div>
               </td>
-              <td>{{i.Price}}</td>
+              <td>{{i.FullPrice}}</td>
               <td>
-                  <button class="btn btn-danger">X</button>
+                  <button class="btn btn-danger" (click)="DeleteItem(i.ProductID)">X</button>
               </td>
           </tr>
 
           </tbody>
           
         </table>
+        <div>
+          <textarea class="form-control" placeholder="Note" [(ngModel)]="Note">
+
+          </textarea>
+        </div>
+        <hr/>
+        <div>
+          <h2 class="d-flex flex-row-reverse"> Total Price : {{GetFullPrice()}}</h2>
+        </div>
+        <div class="d-flex flex-row-reverse">
+        <button class="btn btn-success mt-5" (click)="submitOrder()">Confirm</button>
+      </div>
     </div>
   
 
