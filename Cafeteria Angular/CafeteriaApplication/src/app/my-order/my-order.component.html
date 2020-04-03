@@ -48,10 +48,11 @@
              </mat-panel-description>
           </mat-expansion-panel-header>
             
-        <div>
-            
-            <mat-progress-spinner mode="indeterminate">
-            </mat-progress-spinner>
+        <div class="d-flex justify-content-around">
+            <ng-template *ngIf="OrderDetails.length<=0 then spinner else data ">
+
+            </ng-template>
+           
         </div>
         </mat-expansion-panel>
        
@@ -60,3 +61,18 @@
       </mat-accordion>
     
 </div>
+
+<ng-template #spinner>
+  <mat-progress-spinner  mode="indeterminate">
+  </mat-progress-spinner>
+</ng-template>
+<ng-template #data>
+
+  <div class="card" *ngFor="let item of OrderDetails">
+    <img [src]="item.Product.ImageUrl" style="width: 200px;" class="card-img-top" alt="">
+  <div class="card-body">
+     
+  </div>
+</div>
+
+</ng-template>

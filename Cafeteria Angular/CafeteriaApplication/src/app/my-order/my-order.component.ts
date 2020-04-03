@@ -16,7 +16,7 @@ import { IOrderWithProduct } from 'src/model/order-product';
 export class MyOrderComponent implements OnInit {
   interval:Interval;
   orders:Order[];
-  OrderDetails:IOrderWithProduct[];
+  OrderDetails:IOrderWithProduct[]=[];
   constructor(private order:OrderDetailsService) { 
 
     this.interval = new Interval();

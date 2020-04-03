@@ -27,6 +27,7 @@ namespace CafeteriaAPI.Controllers
            
             string CustomerID = User.Identity.GetUserId();
             var order = context.Orders.Where(a => a.CustomerID == CustomerID && a.OrderDateTime > from && a.OrderDateTime <= to).ToList();
+         
             return Ok(order);
         }
         [Route("api/OrderDetails/{ID}")]
@@ -38,7 +39,10 @@ namespace CafeteriaAPI.Controllers
             }
             List<OrderDetails> orderDetails = context.OrderDetails.Include(async=>async.Product)
                 .Where(a => a.OrderID == ID).ToList();
-
+            foreach (var item in orderDetails)
+            {
+                item.Product.ImageUrl = GetImage(item.Product.ImageUrl);
+            }
 
             return Ok(orderDetails);
         }
@@ -75,6 +79,14 @@ namespace CafeteriaAPI.Controllers
             context.SaveChanges();
             return Ok(order);
         }
-       
+
+        public static string GetImage(string image)
+        {
+            Uri uri = System.Web.HttpContext.Current.Request.Url;
+            return $"{uri.Scheme}://{uri.Host}:{uri.Port}/Images/{image}";
+
+        }
     }
+
+   
 }
