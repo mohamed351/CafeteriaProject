@@ -13,7 +13,13 @@ export class LoginComponent implements OnInit {
 
   constructor(private UserService:UserService 
     ,private LocalStorageUsers:LocalStorageUsersService,
-    private Router:Router) { }
+    private Router:Router) {
+
+      if(this.LocalStorageUsers.GetRole()  == "Customer")
+      {
+         this.Router.navigate(['/CustomerHome']);
+      }
+     }
 
   ngOnInit(): void {
   }

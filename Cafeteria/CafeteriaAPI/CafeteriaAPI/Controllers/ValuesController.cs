@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CafeteriaAPI.Models;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,34 +9,22 @@ using System.Web.Http;
 
 namespace CafeteriaAPI.Controllers
 {
-    [Authorize]
+ 
+    [Authorize(Roles ="Customer")]
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        ApplicationDbContext context = new ApplicationDbContext();
 
-        // GET api/values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //public IHttpActionResult Post(IntervalViewModel interval)
+        //{
 
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
+        //    string CustomerID = User.Identity.GetUserId();
+        //    var order = context.Orders.Where(a => a.CustomerID == CustomerID && a.OrderDateTime > interval.From && a.OrderDateTime < interval.To);
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //    return Ok(order);
+        //}
 
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-        }
+
     }
 }

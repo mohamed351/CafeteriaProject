@@ -1,3 +1,4 @@
+import { MyOrderComponent } from './my-order/my-order.component';
 import { CategoryAddComponent } from './panel/category-admin/category-add/category-add.component';
 import { CategoryEditComponent } from './panel/category-admin/category-edit/category-edit.component';
 import { ProductEditComponent } from './panel/product-admin/product-edit/product-edit.component';
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:"productControl",component:ProductAdminComponent},
   {path:"productControl/productControlAdd",component:ProductAddComponent},
   {path:"productControl/productControlEdit/:id",component:ProductEditComponent},
-  {path:"CustomerHome",component:HomeUserComponent}
+  {path:"CustomerHome",component:HomeUserComponent},
+  {path:"MyOrders",component:MyOrderComponent}
 ];
 
 @NgModule({

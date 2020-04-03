@@ -173,3 +173,5 @@ F:\Project\Cafeteria\CafeteriaAPI\CafeteriaAPI\obj\Debug\CafeteriaAPI.csprojAsse
 F:\Project\Cafeteria\CafeteriaAPI\CafeteriaAPI\obj\Debug\CafeteriaAPI.csproj.CoreCompileInputs.cache
 F:\Project\Cafeteria\CafeteriaAPI\CafeteriaAPI\obj\Debug\CafeteriaAPI.csproj.CopyComplete
 F:\Project\Cafeteria\CafeteriaAPI\CafeteriaAPI\obj\Debug\CafeteriaAPI.Migrations.AddPriceAndCategoriesToProduct.resources
+F:\Project\Cafeteria\CafeteriaAPI\CafeteriaAPI\obj\Debug\CafeteriaAPI.Migrations.AddStatusInOrder.resources
+F:\Project\Cafeteria\CafeteriaAPI\CafeteriaAPI\obj\Debug\CafeteriaAPI.Migrations.addAmountToEasyAccessTheOrder.resources

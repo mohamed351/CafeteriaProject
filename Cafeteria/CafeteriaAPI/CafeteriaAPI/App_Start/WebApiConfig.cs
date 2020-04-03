@@ -24,8 +24,9 @@ namespace CafeteriaAPI
             killmyself.SupportsCredentials = true;
          
                config.EnableCors(killmyself);
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
-          
+
             config.Formatters.JsonFormatter.SupportedMediaTypes
                .Add(new MediaTypeHeaderValue("text/html"));
 

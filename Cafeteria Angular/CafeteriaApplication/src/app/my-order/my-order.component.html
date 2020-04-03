@@ -1,0 +1,62 @@
+<div class="container mt-5">
+
+    <div>
+        <h2>My Orders </h2>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
+        </div>
+    </div>
+
+   
+    <div class="row">
+        <div class="col-md-3">
+    <mat-form-field>
+        <mat-label>From</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker (closed)="onContainerClick()"  #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-3">
+        <mat-form-field>
+            <mat-label>To</mat-label>
+            <input matInput [matDatepicker]="picker2">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 (closed)="onContainerClick()"></mat-datepicker>
+          </mat-form-field>
+    </div>
+
+
+    </div>
+
+
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let item of orders" (afterExpand)="Expanded(item.OrderID)" (afterCollapse)="CloseExpanded()">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{item.OrderDateTime |date:'medium'}}
+            </mat-panel-title>
+            <mat-panel-description>
+            {{item.Status |orderStatus}}
+            </mat-panel-description>
+      
+            <mat-panel-description>
+              {{item.Amount|currency}}
+             </mat-panel-description>
+          </mat-expansion-panel-header>
+            
+        <div>
+            
+            <mat-progress-spinner mode="indeterminate">
+            </mat-progress-spinner>
+        </div>
+        </mat-expansion-panel>
+       
+
+      
+      </mat-accordion>
+    
+</div>

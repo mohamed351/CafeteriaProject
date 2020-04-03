@@ -22,6 +22,10 @@ namespace CafeteriaAPI.Models
         [ForeignKey("CustomerID")]
         public ApplicationUser Customer { get; set; }
 
+        public OrderStatus Status { get; set; }
+
+        public int Amount { get; set; }
+
         public ICollection<OrderDetails> OrderDetails { get; set; }
 
     }

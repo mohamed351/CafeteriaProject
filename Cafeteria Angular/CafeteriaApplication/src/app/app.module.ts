@@ -20,9 +20,24 @@ import { CategoryAddComponent } from './panel/category-admin/category-add/catego
 import { CategoryEditComponent } from './panel/category-admin/category-edit/category-edit.component';
 import { DeleteModelBoxComponent } from './delete-model-box/delete-model-box.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule, BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { ShoppingCartService } from 'src/services/shopping-cart.service';
+import { MyOrderComponent } from './my-order/my-order.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon'
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import { OrderDetailsService } from 'src/services/order-details.service';
+
+import {MatExpansionModule} from '@angular/material/expansion';
+
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule } from '@angular/material/sort';
+import { StatusPipe } from './pipes/status.pipe';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -37,7 +52,9 @@ import { ShoppingCartService } from 'src/services/shopping-cart.service';
     ProductEditComponent,
     CategoryAddComponent,
     CategoryEditComponent,
-    DeleteModelBoxComponent
+    DeleteModelBoxComponent,
+    MyOrderComponent,
+    StatusPipe
 
 
   ],
@@ -51,10 +68,24 @@ import { ShoppingCartService } from 'src/services/shopping-cart.service';
     MatDialogModule,
     NoopAnimationsModule,
     MatButtonModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatExpansionModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule
+
+    
+
     
 
   ],
-  providers: [UserService, LocalStorageUsersService,ShoppingCartService],
+  providers: [UserService, LocalStorageUsersService,ShoppingCartService,MatDatepickerModule,OrderDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

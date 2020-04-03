@@ -68,8 +68,10 @@ export class HomeUserComponent implements OnInit {
     ord.Note = this.Note;
     ord.OrderDetails = this.shop.GetItems();
     this.orderdetails.SubmitOrder(ord).subscribe(a=>{
-      this.toster.success("You Made an Order","Please Wait till it finish");
+      console.log(a);
+   
     });
+    this.toster.success("You Made an Order","Please Wait till it finish");
     this.shop.Clear();
     this.ShoppingCart= this.shop.GetItems();
    
